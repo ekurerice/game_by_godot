@@ -1,5 +1,5 @@
-class_name Card
 extends Node2D
+class_name Card
 signal hovered
 signal hovered_off
 var starting_position
