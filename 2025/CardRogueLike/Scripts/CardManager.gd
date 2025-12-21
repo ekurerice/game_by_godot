@@ -2,20 +2,12 @@ extends Node2D
 
 const COLLISION_MASK_CARD = 1
 const COLLISION_MASK_CARD_SLOT = 2
+const DEFAULT_CARD_MOVE_SPEED = 0.1
 var card_being_dragged = null
 var screen_size: Vector2
 var is_hovering_over_card: bool = false
 var player_hand_reference: PlayerHand
-
-func _input(event):
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		if event.pressed:
-			var card = raycast_check_for_card()
-			if card:
-				start_drag(card)
-		else:
-			if card_being_dragged:
-				finish_drag()
+var input_manager_reference: InputManager
 
 func _process(delta: float) -> void:
 	if card_being_dragged:
@@ -26,6 +18,8 @@ func _process(delta: float) -> void:
 func _ready():
 	screen_size = get_viewport_rect().size
 	player_hand_reference = $"../PlayerHand"
+	input_manager_reference = $"../InputManager"
+	input_manager_reference.connect("left_mouse_button_released", on_left_click_released)
 
 func highlight_card(card, hovered: bool):
 	if hovered:
@@ -60,7 +54,7 @@ func finish_drag():
 		card_being_dragged.get_node("Area2D/CollisionShape2D").disabled = true
 		card_slot_found.card_in_slot = true
 	else:
-		player_hand_reference.add_card_to_hand(card_being_dragged)
+		player_hand_reference.add_card_to_hand(card_being_dragged, DEFAULT_CARD_MOVE_SPEED)
 	card_being_dragged = null
 
 
@@ -84,6 +78,9 @@ func on_hovered_off_card(card):
 		else:
 			is_hovering_over_card = false
 
+func on_left_click_released():
+	if card_being_dragged:
+		finish_drag()
 func raycast_check_for_card():
 	var space_state = get_world_2d().direct_space_state
 	var parameters = PhysicsPointQueryParameters2D.new()
