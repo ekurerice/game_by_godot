@@ -1,7 +1,8 @@
+class_name Card
 extends Node2D
 signal hovered
 signal hovered_off
-
+var starting_position
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	get_parent().connect_card_signals(self)
