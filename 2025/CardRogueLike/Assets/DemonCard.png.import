@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnpskq4invnjl"
-path="res://.godot/imported/knight.png-f472b64305368cee1f380a5cb35bd9ab.ctex"
+uid="uid://bsfo1bm1jywvl"
+path="res://.godot/imported/DemonCard.png-1f9060c3942ab87820a2b8fd3686c81a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/knight.png"
-dest_files=["res://.godot/imported/knight.png-f472b64305368cee1f380a5cb35bd9ab.ctex"]
+source_file="res://Assets/DemonCard.png"
+dest_files=["res://.godot/imported/DemonCard.png-1f9060c3942ab87820a2b8fd3686c81a.ctex"]
 
 [params]
 
