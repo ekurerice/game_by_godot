@@ -37,9 +37,6 @@ func draw_card():
 	# 目標のサイズ（例: 200x300ピクセル）
 	new_card.get_node("CardImage").texture = texture
 	# 目標のサイズ（例: 200x300ピクセル）
-	var target_size = Vector2(200, 300)
-	var tex_size = texture.get_size()
-	new_card.get_node("CardImage").scale = Vector2(target_size.x / tex_size.x, target_size.y / tex_size.y)
 
 	# set_card_image(new_card.get_node("CardImage").texture, load(card_image_path))
 	new_card.get_node("Attack").text = str(card_database_reference.CARDS[card_drawn_name][0])
@@ -48,13 +45,3 @@ func draw_card():
 	new_card.name = "Card"
 	$"../PlayerHand".add_card_to_hand(new_card, CARD_DRAW_SPEED)
 	new_card.get_node("AnimationPlayer").play("card_flip")
-
-func set_card_image(sprite: Sprite2D, tex: Texture2D):
-	sprite.texture = tex
-	
-	# 目標のサイズ（例: 200x300ピクセル）
-	var target_size = Vector2(100, 150)
-	
-	# テクスチャのサイズからスケールを自動計算
-	var tex_size = tex.get_size()
-	sprite.scale = Vector2(target_size.x / tex_size.x, target_size.y / tex_size.y)
