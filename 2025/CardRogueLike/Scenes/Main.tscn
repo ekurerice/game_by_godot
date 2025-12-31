@@ -12,20 +12,97 @@ size = Vector2(178, 260)
 
 [node name="Node2D" type="Node2D"]
 
+[node name="CardSlots" type="Node2D" parent="."]
+
+[node name="CardSlot" parent="CardSlots" instance=ExtResource("3_r0du0")]
+position = Vector2(960, 767)
+scale = Vector2(0.6, 0.6)
+
+[node name="CardSlot2" parent="CardSlots" instance=ExtResource("3_r0du0")]
+position = Vector2(800, 767)
+scale = Vector2(0.6, 0.6)
+
+[node name="CardSlot3" parent="CardSlots" instance=ExtResource("3_r0du0")]
+position = Vector2(1280, 767)
+scale = Vector2(0.6, 0.6)
+
+[node name="CardSlot4" parent="CardSlots" instance=ExtResource("3_r0du0")]
+position = Vector2(1119, 767)
+scale = Vector2(0.6, 0.6)
+
+[node name="CardSlot5" parent="CardSlots" instance=ExtResource("3_r0du0")]
+position = Vector2(1443, 767.0001)
+scale = Vector2(0.6, 0.6)
+
+[node name="CardSlot6" parent="CardSlots" instance=ExtResource("3_r0du0")]
+position = Vector2(960, 558)
+scale = Vector2(0.6, 0.6)
+
+[node name="CardSlot7" parent="CardSlots" instance=ExtResource("3_r0du0")]
+position = Vector2(800, 558)
+scale = Vector2(0.6, 0.6)
+
+[node name="CardSlot8" parent="CardSlots" instance=ExtResource("3_r0du0")]
+position = Vector2(1280, 558)
+scale = Vector2(0.6, 0.6)
+
+[node name="CardSlot9" parent="CardSlots" instance=ExtResource("3_r0du0")]
+position = Vector2(1119, 558)
+scale = Vector2(0.6, 0.6)
+
+[node name="CardSlot10" parent="CardSlots" instance=ExtResource("3_r0du0")]
+position = Vector2(1443, 558.0001)
+scale = Vector2(0.6, 0.6)
+
+[node name="CardSlot11" parent="CardSlots" instance=ExtResource("3_r0du0")]
+position = Vector2(960, 303)
+scale = Vector2(0.6, 0.6)
+
+[node name="CardSlot12" parent="CardSlots" instance=ExtResource("3_r0du0")]
+position = Vector2(800, 303)
+scale = Vector2(0.6, 0.6)
+
+[node name="CardSlot13" parent="CardSlots" instance=ExtResource("3_r0du0")]
+position = Vector2(1280, 303)
+scale = Vector2(0.6, 0.6)
+
+[node name="CardSlot14" parent="CardSlots" instance=ExtResource("3_r0du0")]
+position = Vector2(1119, 303)
+scale = Vector2(0.6, 0.6)
+
+[node name="CardSlot15" parent="CardSlots" instance=ExtResource("3_r0du0")]
+position = Vector2(1443, 303.00012)
+scale = Vector2(0.6, 0.6)
+
+[node name="CardSlot16" parent="CardSlots" instance=ExtResource("3_r0du0")]
+position = Vector2(960, 103)
+scale = Vector2(0.6, 0.6)
+
+[node name="CardSlot17" parent="CardSlots" instance=ExtResource("3_r0du0")]
+position = Vector2(800, 103)
+scale = Vector2(0.6, 0.6)
+
+[node name="CardSlot18" parent="CardSlots" instance=ExtResource("3_r0du0")]
+position = Vector2(1280, 103)
+scale = Vector2(0.6, 0.6)
+
+[node name="CardSlot19" parent="CardSlots" instance=ExtResource("3_r0du0")]
+position = Vector2(1119, 103)
+scale = Vector2(0.6, 0.6)
+
+[node name="CardSlot20" parent="CardSlots" instance=ExtResource("3_r0du0")]
+position = Vector2(1443, 103.00012)
+scale = Vector2(0.6, 0.6)
+
 [node name="CardManager" type="Node2D" parent="."]
 script = ExtResource("1_oeqa3")
-
-[node name="CardSlot" parent="." instance=ExtResource("3_r0du0")]
-position = Vector2(492, 143)
-
-[node name="CardSlot2" parent="." instance=ExtResource("3_r0du0")]
-position = Vector2(261, 138)
 
 [node name="PlayerHand" type="Node2D" parent="."]
 script = ExtResource("4_cm0pq")
 
 [node name="Deck" type="Node2D" parent="."]
-position = Vector2(150, 890)
+position = Vector2(150, 964)
+scale = Vector2(0.8, 0.8)
 script = ExtResource("4_v1gob")
 
 [node name="Sprite2D" type="Sprite2D" parent="Deck"]
@@ -49,6 +126,28 @@ offset_right = 31.0
 offset_bottom = 12.0
 scale = Vector2(2, 2)
 text = "0"
+metadata/_edit_use_anchors_ = true
 
 [node name="InputManager" type="Node2D" parent="."]
 script = ExtResource("6_50glp")
+
+[node name="OpponentDeck" type="Node2D" parent="."]
+
+[node name="Deck" type="Node2D" parent="OpponentDeck"]
+position = Vector2(1750, 125)
+scale = Vector2(0.8, 0.8)
+
+[node name="Sprite2D" type="Sprite2D" parent="OpponentDeck/Deck"]
+z_index = -2
+texture = ExtResource("5_jw32o")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="OpponentDeck/Deck"]
+modulate = Color(0, 0, 0, 1)
+z_index = -2
+offset_left = -9.0
+offset_top = -28.0
+offset_right = 31.0
+offset_bottom = 12.0
+scale = Vector2(2, 2)
+text = "0"
+metadata/_edit_use_anchors_ = true
