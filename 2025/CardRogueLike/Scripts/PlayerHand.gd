@@ -2,8 +2,8 @@ class_name PlayerHand
 extends Node2D
 const HAND_COUNT = 8
 const CARD_SCENE_PATH = "res://Scenes/Card.tscn"
-const CARD_WIDTH = 200
-const HAND_Y_POSITION = 890
+const CARD_WIDTH = 160
+const HAND_Y_POSITION = 955
 const DEFAULT_CARD_MOVE_SPEED = 0.1
 
 var player_hand: Array[Card] = []
