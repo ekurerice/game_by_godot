@@ -5,6 +5,7 @@ const COLLISION_MASK_CARD_SLOT = 2
 const DEFAULT_CARD_MOVE_SPEED = 0.1
 const DEFAULT_CARD_SCALE = 0.8
 const CARD_BIGGER_SCALE = 0.85
+const CARD_SMALLER_SCALE = 0.6
 var card_being_dragged = null
 var screen_size: Vector2
 var is_hovering_over_card: bool = false
@@ -51,9 +52,13 @@ func finish_drag():
 	var card_slot_found = raycast_check_for_card_slot()
 
 	if card_slot_found and not card_slot_found.card_in_slot:
+		card_being_dragged.scale = Vector2(CARD_SMALLER_SCALE, CARD_SMALLER_SCALE)
+		card_being_dragged.z_index = -1 
 		player_hand_reference.remove_card_from_hand(card_being_dragged)
+		card_being_dragged.card_slot_card_is_in = card_slot_found
 		card_being_dragged.position = card_slot_found.position
 		card_being_dragged.get_node("Area2D/CollisionShape2D").disabled = true
+		
 		card_slot_found.card_in_slot = true
 	else:
 		player_hand_reference.add_card_to_hand(card_being_dragged, DEFAULT_CARD_MOVE_SPEED)
@@ -70,8 +75,8 @@ func on_hovered_over_card(card):
 		highlight_card(card, true)
 
 func on_hovered_off_card(card):
-	# ドラッグされている時は他のカードを操作しない
-	if !card_being_dragged:
+	# Check if card is Not in a card slot AND NOT being dragged
+	if !card.card_slot_card_is_in && !card_being_dragged:
 		highlight_card(card, false)
 		# is_hovering_over_card = false
 		var new_card_hovered = raycast_check_for_card()
